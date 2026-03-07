@@ -614,13 +614,6 @@ gene_label <- ifelse(
   selected_symbols
 )
 rownames(mat_heatmap) <- gene_label
- ---------------------------
-gene_label <- ifelse(
-  is.na(selected_symbols) | selected_symbols == "",
-  selected_probes,
-  selected_symbols
-)
-rownames(mat_heatmap) <- gene_label
 
 
 # STEP 5: Pembersihan data (Wajib agar tidak error saat Clustering)
@@ -673,13 +666,5 @@ common_degs_final <- res_endotel_sig[res_endotel_sig$SYMBOL %in% common_symbols,
 write.csv(common_degs_final, "Hasil_94_Common_DEGs_Diabetes.csv", row.names = FALSE)
 
 # Memberikan pesan konfirmasi di console
-message("Analisis selesai! Tiga file CSV hasil telah disimpan di folder kerja Anda.")
+message("Analisis selesai! File hasil telah disimpan.")
   
-  
-# write.csv(): menyimpan hasil analisis ke file CSV
-write.csv(topTableResults, "Hasil_GSE10072_DEG.csv")
-
-message("Analisis selesai. File hasil telah disimpan.")
-
-
-
